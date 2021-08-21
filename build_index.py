@@ -11,7 +11,10 @@ plugins = os.listdir()
 blacklisted_terms = ["LICENSE", "CNAME", "build_index.py", "build_plugin_index.py", "index.html", ".git", ".gitignore", ".github"]
 n = 0
 for i in blacklisted_terms:
-    plugins.remove(i)
+    try:
+        plugins.remove(i)
+    except:
+        pass
 
 html = build_html(plugins)
 with open("index.html", "w") as f:
