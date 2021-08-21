@@ -20,6 +20,7 @@ jobs:
         - run: mv manifesto/dist/* manifesto/
         - run: python build_plugin_index.py manifesto/cumcord_manifest.json manifesto/index.html
         - run: python build_index.py
+        - run: echo "" > .gitignore #let it upload the index files
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
           with:
