@@ -1,0 +1,1 @@
+(function(){"use strict";const o={modules:window.cumcord.modules,patcher:window.cumcord.patcher}.modules,e=o.webpackModules;let t;return o.commonModules,{onLoad(){t=cumcord.patcher.after("sendMessage",e.findByProps("sendMessage"),(o=>{o[1].content.startsWith("!manifesto")&&(o[1].content="<https://rentry.co/cumcord_manifesto>")}))},onUnload(){t()}}})();
