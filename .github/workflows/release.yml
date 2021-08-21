@@ -14,6 +14,8 @@ jobs:
         - run: npm install -g sperm
         - run: cd emoticons && sperm build cumcord_manifest.json
         - run: mv emoticons/dist/* emoticons/
+        - run: cd manifesto && sperm build cumcord_manifest.json
+        - run: mv manifesto/dist/* manifesto/
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
           with:
