@@ -1,0 +1,1 @@
+(function(){"use strict";const e={modules:window.cumcord.modules,patcher:window.cumcord.patcher}.modules,o=e.webpackModules;let s;return e.commonModules,{onLoad:()=>(s=cumcord.patcher.after("sendMessage",o.findByProps("sendMessage"),(e=>{console.log("[messagelogger] User sent message: "+e[1].content)})),args),onUnload(){s()}}})();

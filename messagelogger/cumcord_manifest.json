@@ -1,0 +1,7 @@
+{
+  "name": "Console Message Logger",
+  "description": "Logs all message contents in the console. For debugging purposes.",
+  "author": "Drake/DustyAngel47#7299/Ruthenic",
+  "file": "index.js",
+  "license": "WTFPL"
+}
