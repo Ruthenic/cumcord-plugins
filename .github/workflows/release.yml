@@ -22,6 +22,12 @@ jobs:
         - run: cd helluva && sperm build cumcord_manifest.json
         - run: mv helluva/dist/* helluva/
         - run: python build_plugin_index.py helluva/cumcord_manifest.json helluva/index.html
+        - run: cd messagelogger && sperm build cumcord_manifest.json
+        - run: mv messagelogger/dist/* messagelogger/
+        - run: python build_plugin_index.py messagelogger/cumcord_manifest.json messagelogger/index.html
+        - run: cd sendev && sperm build cumcord_manifest.json
+        - run: mv sendev/dist/* sendev/
+        - run: python build_plugin_index.py sendev/cumcord_manifest.json sendev/index.html
         - run: python build_index.py
         - run: echo "" > .gitignore #let it upload the index files
         - name: Deploy
