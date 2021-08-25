@@ -31,6 +31,9 @@ jobs:
         - run: cd messagedeletion && sperm build cumcord_manifest.json
         - run: mv messagedeletion/dist/* messagedeletion/
         - run: python build_plugin_index.py messagedeletion/cumcord_manifest.json messagedeletion/index.html messagedeletion
+        - run: cd dieThreadBar && sperm build cumcord_manifest.json
+        - run: mv dieThreadBar/dist/* dieThreadBar/
+        - run: python build_plugin_index.py dieThreadBar/cumcord_manifest.json dieThreadBar/index.html dieThreadBar
         - run: python build_index.py
         - run: echo "" > .gitignore #let it upload the index files
         - name: Deploy
