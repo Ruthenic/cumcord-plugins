@@ -4,7 +4,7 @@ import os, json, sys
 def build_html(plugins):
     html = "<head><style>@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300&display=swap');*{font-family: 'Azeret Mono', monospace;}</style></head><body>"
     for plugin in plugins:
-        html += f"<a href='{plugin}/index.html'>{plugin}</a><br>"
+        html += f"<a href='{plugin}'>{plugin}</a><br>"
     return html + "</body>"
 
 plugins = os.listdir()
