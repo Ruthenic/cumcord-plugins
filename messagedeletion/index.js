@@ -7,13 +7,13 @@ let untimeout;
 
 function styleMessages() {
 	for (let message of window.deletedMessages) {
-		console.log("[messagedeletion] Trying to restyle...")
+		//console.log("[messagedeletion] Trying to restyle...")
 		try {
 			message["deletedHtmlElement"].style.backgroundColor = 'rgba(240, 71, 71, 0.1)';
 			document.getElementById(message["id"]).style.backgroundColor = 'rgba(240, 71, 71, 0.1)';
-			console.log("[messagedeletion] Correctly styled message!")
+			//console.log("[messagedeletion] Correctly styled message!")
 		} catch (error) {
-			console.log("[messagedeletion] Failed to restyle deleted message!")
+			//console.log("[messagedeletion] Failed to restyle deleted message!")
 			console.log(error)
 		}
 	}
@@ -40,7 +40,7 @@ export default {
                     console.log(error);
                 }
             }
-           	console.log("[messagedeletion] Debug: event ran " + args[0]["type"]);
+           	//console.log("[messagedeletion] Debug: event ran " + args[0]["type"]);
             return orig(...args);
         });
     },
