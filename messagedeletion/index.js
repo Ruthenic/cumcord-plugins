@@ -14,6 +14,7 @@ function styleMessages() {
 			console.log("[messagedeletion] Correctly styled message!")
 		} catch (error) {
 			console.log("[messagedeletion] Failed to restyle deleted message!")
+			console.log(error)
 		}
 	}
 }
