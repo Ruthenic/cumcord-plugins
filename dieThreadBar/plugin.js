@@ -1,0 +1,1 @@
+(function(){"use strict";const o={modules:window.cumcord.modules,patcher:window.cumcord.patcher}.modules;let e;return o.webpackModules,o.commonModules,{onLoad(){e=cumcord.patcher.injectCSS(".threadSuggestionBar-2ufK2Z {display: none;}")},onUnload(){e()}}})();
