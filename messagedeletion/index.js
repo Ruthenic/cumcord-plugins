@@ -27,7 +27,6 @@ export default {
             if (args[0]["type"] === "MESSAGE_DELETE") {
                 try {
                     var deletedMessageInfo = {"deletedHtmlElement": getElementFromMessageId(args[0]["id"])};
-					if (deletedMessageInfo["deletedHtmlElement"] === null) return; //some some reason, a shitton of the MESSAGE_DELETE events that are sent end up null... not actual deleted messages, they're just randomly sent for no reason. much fun
                     deletedMessageInfo["deletedText"] = deletedMessageInfo["deletedHtmlElement"].innerText.split("\n")[3];
                     deletedMessageInfo["deletedHtmlElement"].style.backgroundColor = 'rgba(240, 71, 71, 0.1)';
                     deletedMessageInfo["id"] = "chat-messages-" + args[0]["id"];
@@ -39,7 +38,7 @@ export default {
                 	return;
                 } catch (error) {
                     console.log("[messagedeletion] Failed to get deleted message!");
-                    console.error(error);
+                    console.log(error);
                 }
             }
             return orig(...args);
