@@ -8,7 +8,7 @@ def build_html(plugins):
     return html + "</body>"
 
 plugins = os.listdir()
-blacklisted_terms = ["LICENSE", "CNAME", "build_index.py", "build_plugin_index.py", "index.html", ".git", ".gitignore", ".github"]
+blacklisted_terms = ["LICENSE", "CNAME", "build_index.py", "build_plugin_index.py", "index.html", ".git", ".gitignore", ".github", "webscripts", "pccompat"]
 n = 0
 for i in blacklisted_terms:
     try:
