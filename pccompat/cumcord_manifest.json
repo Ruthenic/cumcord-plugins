@@ -1,0 +1,7 @@
+{
+  "name": "pcCompat",
+  "description": "Powercord Compatibility Layer.",
+  "author": "Drake",
+  "file": "index.js",
+  "license": "WTFPL"
+}
