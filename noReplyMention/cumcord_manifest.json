@@ -1,0 +1,7 @@
+{
+  "name": "noReplyMention",
+  "description": "Disable reply pings by default.",
+  "author": "Drake",
+  "file": "index.js",
+  "license": "WTFPL"
+}
