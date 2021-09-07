@@ -1,12 +1,25 @@
+import {React} from '@cumcord/modules/common';
 const getElementFromMessageId =
     cumcord.modules.webpackModules.findByProps('getElementFromMessageId')
         .getElementFromMessageId;
 const origDispatch = Object.getPrototypeOf(
     cumcord.modules.webpackModules.findByProps('dispatch'));
+const getChannelInfo =
+    Object
+        .getPrototypeOf(
+            cumcord.modules.webpackModules.findByProps('getChannel'))
+        .getChannel;
+const getGuildInfo =
+    Object
+        .getPrototypeOf(cumcord.modules.webpackModules.findByProps('getGuild'))
+        .getGuild;
+const SettingsView =
+    cumcord.modules.webpackModules.findByDisplayName('SettingsView');
+import Settings from './components/Settings.jsx';
 
-let deletedMessages = []
-
-    let unpatch;
+let deletedMessages = [];
+let unpatch;
+let unsettings;
 let untimeout;
 let uncss
 
@@ -26,6 +39,8 @@ function styleMessages() {
 
 export default {
   onLoad() {
+    // Initialize settings values
+    window.betterMessageDeletion_enableToasts = false;
     // MLv2 style
     // TODO: make this shit work
     // uncss = cumcord.patcher.injectCSS(".deleted-message{color: #f04747
@@ -42,7 +57,7 @@ export default {
         'dispatch', origDispatch,
         (args, orig) => {  //"prototype bullshit", thanks creatable
           if (args[0]['type'] === 'MESSAGE_DELETE') {
-            // console.log(args);
+            console.log(args);
             try {
               var deletedMessageInfo = {
                 'deletedHtmlElement': getElementFromMessageId(args[0]['id'])
@@ -58,7 +73,16 @@ export default {
               if (deletedMessages.indexOf(deletedMessageInfo) == -1) {
                 deletedMessages.push(deletedMessageInfo);
               }
-              // console.log(deletedMessages);
+              if (window.betterMessageDeletion_enableToasts) {
+                var guildName =
+                    getGuildInfo(getChannelInfo(args[0]['channelId']).guild_id)
+                        .name;
+                cumcord.ui.toasts.showToast({
+                  title: `New deleted message in ${guildName}!`,
+                  duration: 3000
+                });
+              }
+              console.log(deletedMessages);
               return;
             } catch (error) {
               console.log('[messagedeletion] Failed to get deleted message!');
@@ -66,6 +90,16 @@ export default {
             }
           }
           return orig(...args);
+        });
+    unsettings = cumcord.patcher.after(
+        'getPredicateSections', SettingsView.prototype, (args, items) => {
+          const settings = [
+            {section: 'DIVIDER'},
+            {section: 'HEADER', label: 'BetterMessageDeletion'},
+            {section: 'BMD', label: 'Settings', element: Settings}
+          ]
+          items.push(...settings);
+          return items;
         });
   },
   onUnload() {
