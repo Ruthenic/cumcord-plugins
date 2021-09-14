@@ -1,1 +1,1 @@
-(function(){"use strict";let e;return{onLoad(){e=cumcord.patcher.before("createPendingReply",cumcord.modules.webpackModules.findByProps("createPendingReply"),(e=>{e[0].shouldMention=!1}))},onUnload(){e()}}})();
+(function(){"use strict";let e;var n={onLoad(){e=cumcord.patcher.before("createPendingReply",cumcord.modules.webpackModules.findByProps("createPendingReply"),o=>{o[0].shouldMention=!1})},onUnload(){e()}};return n})();

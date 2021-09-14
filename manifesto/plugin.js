@@ -1,1 +1,1 @@
-(function(e){"use strict";let t;return{onLoad(){t=cumcord.patcher.after("sendMessage",e.webpackModules.findByProps("sendMessage"),(e=>{e[1].content.startsWith("!manifesto")&&(e[1].content="<https://rentry.co/cumcord_manifesto>")}))},onUnload(){t()}}})(cumcord.modules);
+(function(n){"use strict";let e;var o={onLoad(){e=cumcord.patcher.after("sendMessage",n.webpackModules.findByProps("sendMessage"),t=>{t[1].content.startsWith("!manifesto")&&(t[1].content="<https://rentry.co/cumcord_manifesto>")})},onUnload(){e()}};return o})(cumcord.modules);
