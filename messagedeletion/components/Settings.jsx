@@ -1,4 +1,3 @@
-import { React } from "@cumcord/modules/common";
 import SettingCard from "./SettingCard.jsx";
 
 const webpackModules = cumcord.modules.webpackModules;

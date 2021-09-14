@@ -1,4 +1,3 @@
-import { React } from "@cumcord/modules/common";
 const webpackModules = cumcord.modules.webpackModules;
 
 const useState = React.useState;
