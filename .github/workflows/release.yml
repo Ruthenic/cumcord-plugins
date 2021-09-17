@@ -37,6 +37,9 @@ jobs:
         - run: cd noReplyMention && sperm build cumcord_manifest.json
         - run: mv noReplyMention/dist/* noReplyMention/
         - run: python build_plugin_index.py noReplyMention/cumcord_manifest.json noReplyMention/index.html noReplyMention
+        - run: cd kyzamode && sperm build cumcord_manifest.json
+        - run: mv kyzamode/dist/* kyzamode/
+        - run: python build_plugin_index.py kyzamode/cumcord_manifest.json kyzamode/index.html kyzamode
         - run: python build_index.py
         - run: echo "" > .gitignore #let it upload the index files
         - name: Deploy

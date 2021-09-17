@@ -1,0 +1,97 @@
+import {webpackModules} from '@cumcord/modules';
+
+let unpatch;
+
+const dictionary = {
+  'wtf': 'what the fuck',
+  'wth': 'what the hell',
+  'lmao': 'laughing my ass off',
+  'lmfao': 'laughing my fucking ass off',
+  'lol': 'laughing out loud',
+  'wdym': 'what do you mean',
+  'ltr': 'left to right',
+  'rtl': 'right to left',
+  'wym': 'what you mean',
+  'ikr': 'i know right',
+  'lmk': 'let me know',
+  'ofc': 'of course',
+  'brb': 'be right back',
+  'btw': 'by the way',
+  'b4': 'before',
+  'ofc': 'of course',
+  'bff': 'best friends forever',
+  'afaik': 'as far as i know',
+  'afk': 'away from keyboard',
+  'ttyl': 'talk to you later',
+  'gtg': 'got to go',
+  'tho': 'though',
+  'ig': 'i guess',
+  'rtfm': 'read the freaking manual',
+  ' u ': ' you ',
+  ' r ': ' are ',
+  ' ur ': ' your ',
+  ' uw ': ' you are welcome ',
+  ' uwot ': ' what do you mean ',
+  ' ok ': ' okay',
+  ' ok.': ' okay.',
+  ' ok?': ' okay?',
+  ' ok!': ' okay!',
+  ' ok,': ' okay,',
+  ' i ': ' I ',
+  ' i?': ' I?',
+  ' i!': ' I!',
+  ' i.': ' I.',
+  ' i,': ' I,',
+  '\ni ': '\nI ',
+  'im': 'I am',
+  'doesnt': 'does not',
+  'dont': 'do not',
+  'didnt': 'did not',
+  'cant': 'can not',
+  'cannot': 'can not',
+  'wont': 'will not',
+  'aint': 'is not',
+  'lets': 'let us',
+  'thats': 'that is',
+  'wouldnt': 'would not',
+  'couldnt': 'could not',
+  'shouldnt': 'should not',
+  'fuck': 'freak',
+  'shitty': 'poopy',
+  'shit': 'poop',
+  'damn': 'darn',
+  'damnit': 'darn it',
+  'dammit': 'darn it'
+};
+const correct = (message) => {
+  for (var word in dictionary) {
+    if (message.toLowerCase().includes(word)) {
+      console.log(`Message contains '${word}', would replace with '${
+          dictionary[word]}'`)
+      // message = message.replace(new RegExp(word, 'g'), dictionary[word]);
+      message = message.toString().replace(word, dictionary[word]);
+    }
+    if (message.slice(-1) !== '.' && message.slice(-1) !== '!' &&
+        message.slice(-1) !== '?') {
+      message += '.';
+    }
+    if (message[0] !== message.toUpperCase()[0]) {
+      message = message.charAt(0).toUpperCase() + message.slice(1);
+    }
+  }
+  return message;
+};
+
+export default {
+  onLoad() {
+    unpatch = cumcord.patcher.after(
+        'sendMessage', webpackModules.findByProps('sendMessage'), (args) => {
+          let messageText = args[1].content;
+          args[1].content = correct(messageText);
+          return args;
+        });
+  },
+  onUnload() {
+    unpatch();
+  }
+};
