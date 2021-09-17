@@ -5,9 +5,9 @@ let unpatch;
 const dictionary = {
   'wtf': 'what the fuck',
   'wth': 'what the hell',
-  'lmao': 'laughing my ass off',
-  'lmfao': 'laughing my fucking ass off',
-  'lol': 'laughing out loud',
+  'lmao': '*laughing my ass off*',
+  'lmfao': '*laughing my fucking ass off*',
+  'lol': '*laughing out loud*',
   'wdym': 'what do you mean',
   'ltr': 'left to right',
   'rtl': 'right to left',
