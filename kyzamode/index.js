@@ -73,8 +73,8 @@ const correct = (message) => {
       // message = message.replace(new RegExp(word, 'g'), dictionary[word]);
       message = message.toString().replace(word, dictionary[word]);
     }
-    if (message.slice(-1) !== '.' && message.slice(-1) !== '!' &&
-        message.slice(-1) !== '?') {
+    if (message.replace("~~", "").slice(-1) !== '.' && message.replace("~~", "").slice(-1) !== '!' &&
+        message.replace("~~", "").slice(-1) !== '?') {
       message += '.';
     }
     if (message[0] !== message.toUpperCase()[0]) {
