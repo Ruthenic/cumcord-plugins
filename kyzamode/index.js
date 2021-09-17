@@ -25,6 +25,7 @@ const dictionary = {
   'ttyl': 'talk to you later',
   'gtg': 'got to go',
   'tho': 'though',
+  'smh': 'shaking my head',
   ' ig ': ' i guess ',
   ' ig': ' i guess',
   'rtfm': 'read the freaking manual',
@@ -81,7 +82,7 @@ const correct = (message) => {
       message = message.charAt(0).toUpperCase() + message.slice(1);
     }
   }
-  return message;
+  return message.replace("Https://", "https://");
 };
 
 export default {
