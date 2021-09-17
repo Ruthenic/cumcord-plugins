@@ -77,7 +77,7 @@ const correct = (message) => {
         message.replace("~~", "").slice(-1) !== '?') {
       message += '.';
     }
-    if (message[0] !== message.toUpperCase()[0]) {
+    if (message.replace("~~", "")[0] !== message.replace("~~", "").toUpperCase()[0]) {
       message = message.charAt(0).toUpperCase() + message.slice(1);
     }
   }
