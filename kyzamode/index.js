@@ -44,6 +44,7 @@ const dictionary = {
   ' i,': ' I,',
   '\ni ': '\nI ',
   'im': 'I am',
+  'Im': 'I am',
   'doesnt': 'does not',
   'dont': 'do not',
   'didnt': 'did not',
@@ -65,7 +66,7 @@ const dictionary = {
 };
 const correct = (message) => {
   for (var word in dictionary) {
-    if (message.toLowerCase().includes(word)) {
+    if (message.toLowerCase().includes(word.toLowerCase())) {
       console.log(`Message contains '${word}', would replace with '${
           dictionary[word]}'`)
       // message = message.replace(new RegExp(word, 'g'), dictionary[word]);
