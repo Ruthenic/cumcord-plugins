@@ -26,6 +26,7 @@ const dictionary = {
   'gtg': 'got to go',
   'tho': 'though',
   'smh': 'shaking my head',
+  'tbh': 'to be honest',
   ' ig ': ' i guess ',
   ' ig': ' i guess',
   'rtfm': 'read the freaking manual',
