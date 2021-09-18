@@ -24,7 +24,6 @@ const dictionary = {
   'afk': 'away from keyboard',
   'ttyl': 'talk to you later',
   'gtg': 'got to go',
-  'tho': 'though',
   'smh': 'shaking my head',
   'tbh': 'to be honest',
   'bruv': 'brother',
@@ -67,8 +66,10 @@ const dictionary = {
   'shitty': 'poopy',
   'shit': 'poop',
   'damn': 'darn',
-  'damnit': 'darn it',
-  'dammit': 'darn it'
+  'dammit': 'darn it',
+  'cock': 'pipe',
+  'dick': 'pipe',
+  'penis': 'pipe'
 };
 const correct = (message) => {
   for (var word in dictionary) {
@@ -78,15 +79,17 @@ const correct = (message) => {
       // message = message.replace(new RegExp(word, 'g'), dictionary[word]);
       message = message.toString().replace(word, dictionary[word]);
     }
-    if (message.replace("~~", "").slice(-1) !== '.' && message.replace("~~", "").slice(-1) !== '!' &&
-        message.replace("~~", "").slice(-1) !== '?') {
+    if (message.replace('~~', '').slice(-1) !== '.' &&
+        message.replace('~~', '').slice(-1) !== '!' &&
+        message.replace('~~', '').slice(-1) !== '?') {
       message += '.';
     }
-    if (message.replace("~~", "")[0] !== message.replace("~~", "").toUpperCase()[0]) {
+    if (message.replace('~~', '')[0] !==
+        message.replace('~~', '').toUpperCase()[0]) {
       message = message.charAt(0).toUpperCase() + message.slice(1);
     }
   }
-  return message.replace("Https://", "https://");
+  return message.replace('Https://', 'https://');
 };
 
 export default {
