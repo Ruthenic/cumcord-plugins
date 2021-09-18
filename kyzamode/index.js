@@ -24,6 +24,7 @@ const dictionary = {
   'afk': 'away from keyboard',
   'ttyl': 'talk to you later',
   'gtg': 'got to go',
+  ' tho ': 'though',
   'smh': 'shaking my head',
   'tbh': 'to be honest',
   'bruv': 'brother',
