@@ -9,8 +9,8 @@ const dictionary = {
   'lmfao': '*laughing my fucking ass off*',
   'lol': '*laughing out loud*',
   'wdym': 'what do you mean',
-  ' ltr': 'left to right',
-  ' rtl': 'right to left',
+  'ltr': 'left to right',
+  'rtl': 'right to left',
   'wym': 'what you mean',
   'ikr': 'i know right',
   'lmk': 'let me know',
@@ -24,33 +24,33 @@ const dictionary = {
   'afk': 'away from keyboard',
   'ttyl': 'talk to you later',
   'gtg': 'got to go',
-  ' tho ': 'though',
+  'tho': 'though',
   'smh': 'shaking my head',
   'tbh': 'to be honest',
   'bruv': 'brother',
-  ' ty': ' thank you',
-  ' ngl': ' not gonna lie',
-  ' ig ': ' i guess ',
-  ' ig': ' i guess',
+  'ty': ' thank you',
+  'ngl': ' not gonna lie',
+  'ig ': ' i guess ',
+  'ig': ' i guess',
   'rtfm': 'read the freaking manual',
-  ' u ': ' you ',
-  ' r ': ' are ',
-  ' ur ': ' your ',
-  ' uw ': ' you are welcome ',
-  ' uwot ': ' what do you mean ',
-  ' ok ': ' okay',
-  ' ok.': ' okay.',
-  ' ok?': ' okay?',
-  ' ok!': ' okay!',
-  ' ok,': ' okay,',
-  ' i ': ' I ',
-  ' i?': ' I?',
-  ' i!': ' I!',
-  ' i.': ' I.',
-  ' i,': ' I,',
+  'u': 'you',
+  'r': 'are',
+  'ur': 'your',
+  'uw': 'you are welcome',
+  'uwot': 'what do you mean',
+  'ok': 'okay',
+  'ok.': 'okay.',
+  'ok?': 'okay?',
+  'ok!': 'okay!',
+  'ok,': 'okay,',
+  'i': ' I',
+  'i?': 'I?',
+  'i!': 'I!',
+  'i.': 'I.',
+  'i,': 'I,',
   '\ni ': '\nI ',
-  'im ': 'I am ',
-  'Im ': 'I am ',
+  'im': 'I am',
+  'Im': 'I am',
   'doesnt': 'does not',
   'dont': 'do not',
   'didnt': 'did not',
@@ -72,23 +72,26 @@ const dictionary = {
   'dick': 'pipe',
   'penis': 'pipe'
 };
+
 const correct = (message) => {
-  for (var word in dictionary) {
-    if (message.toLowerCase().includes(word.toLowerCase())) {
-      console.log(`Message contains '${word}', would replace with '${
-          dictionary[word]}'`)
-      // message = message.replace(new RegExp(word, 'g'), dictionary[word]);
-      message = message.toString().replace(word, dictionary[word]);
+  // Use regex to replace all occurences of ${word} in ${message}
+  message = message.split(' ')
+  for (var i = 0; i < message.length; i++) {
+    for (var word in dictionary) {
+      if (message[i] === word) {
+        message[i] = dictionary[word];
+      }
     }
-    if (message.replace('~~', '').slice(-1) !== '.' &&
-        message.replace('~~', '').slice(-1) !== '!' &&
-        message.replace('~~', '').slice(-1) !== '?') {
-      message += '.';
-    }
-    if (message.replace('~~', '')[0] !==
-        message.replace('~~', '').toUpperCase()[0]) {
-      message = message.charAt(0).toUpperCase() + message.slice(1);
-    }
+  }
+  message = message.join(' ');
+  if (message.replace('~~', '').slice(-1) !== '.' &&
+      message.replace('~~', '').slice(-1) !== '!' &&
+      message.replace('~~', '').slice(-1) !== '?') {
+    message += '.';
+  }
+  if (message.replace('~~', '')[0] !==
+      message.replace('~~', '').toUpperCase()[0]) {
+    message = message.charAt(0).toUpperCase() + message.slice(1);
   }
   return message.replace('Https://', 'https://');
 };
