@@ -3,5 +3,7 @@
   "description": "A set of commands to send dev info such as channel ID without having to use a right-click menu",
   "author": "Drake/DustyAngel47#7299",
   "file": "index.js",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dist": "https://cumcord.ruthenic.com/sendev/",
+    "authorID": "714583473804935238"
 }

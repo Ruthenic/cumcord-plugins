@@ -3,5 +3,7 @@
   "description": "Send the fantastic Cumcord Manifesto at the typing of a command",
   "author": "Drake/DustyAngel47#7299/Ruthenic",
   "file": "index.js",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dist": "https://cumcord.ruthenic.com/manifesto/",
+    "authorID": "714583473804935238"
 }
