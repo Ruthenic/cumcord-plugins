@@ -3,5 +3,7 @@
   "description": "di",
   "author": "Drake",
   "file": "index.js",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dist": "https://cumcord.ruthenic.com/dieThreadBar",
+  "authorID": "714583473804935238"
 }

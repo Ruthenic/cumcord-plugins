@@ -3,5 +3,7 @@
   "description": "Disable reply pings by default.",
   "author": "Drake",
   "file": "index.js",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dist": "https://cumcord.ruthenic.com/noReplyMention/",
+    "authorID": "714583473804935238"
 }

@@ -3,5 +3,7 @@
   "description": "See deleted messages (until a reload). Privacy no more!\nSpecial thanks to Creatable for helping me with a bunch of stuff.",
   "author": "Drake/DustyAngel#7299/Ruthenic",
   "file": "index.js",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dist": "https://cumcord.ruthenic.com/messagedeletion/",
+    "authorID": "714583473804935238"
 }

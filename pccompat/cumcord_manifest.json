@@ -3,5 +3,7 @@
   "description": "Powercord Compatibility Layer.",
   "author": "Drake",
   "file": "index.js",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dist": "TBD",
+  "authorID": "714583473804935238"
 }
