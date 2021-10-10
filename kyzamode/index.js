@@ -76,8 +76,8 @@ const dictionary = {
 const correct = (message) => {
   // Use regex to replace all occurences of ${word} in ${message}
   message = message.split(' ')
-  for (var i = 0; i < message.length; i++) {
-    for (var word in dictionary) {
+  for (let i = 0; i < message.length; i++) {
+    for (let word in dictionary) {
       if (message[i] === word) {
         message[i] = dictionary[word];
       }
