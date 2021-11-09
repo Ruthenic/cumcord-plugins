@@ -43,7 +43,7 @@ const dictionary = {
   'ok?': 'okay?',
   'ok!': 'okay!',
   'ok,': 'okay,',
-  'i': ' I',
+  'i': 'I',
   'i?': 'I?',
   'i!': 'I!',
   'i.': 'I.',
@@ -70,7 +70,8 @@ const dictionary = {
   'dammit': 'darn it',
   'cock': 'pipe',
   'dick': 'pipe',
-  'penis': 'pipe'
+  'penis': 'pipe',
+  'your': "you're"
 };
 
 const correct = (message) => {
