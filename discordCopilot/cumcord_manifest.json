@@ -1,0 +1,8 @@
+{
+  "name": "Discord Copilot",
+  "description": "Github Copilot, except less license infringing and more waiting 30 seconds.",
+  "author": "Drake/DustyAngel47#7299/Ruthenic",
+  "file": "index.js",
+  "license": "WTFPL",
+  "dist": "https://cumcord.ruthenic.com/discordCopilot"
+}
