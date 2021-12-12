@@ -1,0 +1,7 @@
+{
+  "name": "XKCD",
+  "description": "Sends the newest XKCD, and XKCDs by ID (also includes some common XKCDs aliased to commands).",
+  "author": "Drake",
+  "file": "index.js",
+  "license": "WTFPL"
+}

