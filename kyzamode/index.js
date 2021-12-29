@@ -105,7 +105,7 @@ export default {
     unpatch = cumcord.patcher.after(
         'sendMessage', webpackModules.findByProps('sendMessage'), (args) => {
           let messageText = args[1].content;
-          args[1].content = correct(messageText);
+          args[1].content = correct(correct(messageText));
           return args;
         });
   },
