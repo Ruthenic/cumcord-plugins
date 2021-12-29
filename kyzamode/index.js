@@ -71,7 +71,9 @@ const dictionary = {
   'cock': 'pipe',
   'dick': 'pipe',
   'penis': 'pipe',
-  'your': "you're"
+  'your': "you are",
+  'isnt': 'is not',
+  'idk': 'I do not know'
 };
 
 const correct = (message) => {
