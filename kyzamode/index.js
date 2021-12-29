@@ -89,7 +89,8 @@ const correct = (message) => {
   message = message.join(' ');
   if (message.replace('~~', '').slice(-1) !== '.' &&
       message.replace('~~', '').slice(-1) !== '!' &&
-      message.replace('~~', '').slice(-1) !== '?') {
+      message.replace('~~', '').slice(-1) !== '?' &&
+      (message[0] !== ":" && message.replace('~~', '').slice(-1) !== ':') ) {
     message += '.';
   }
   if (message.replace('~~', '')[0] !==
