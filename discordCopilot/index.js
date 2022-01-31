@@ -12,7 +12,7 @@ let generate = async prompt1 => {
 		stream: false
 	}
 	//TODO: use better cors proxy for release
-	let res = await fetch("https://cors.eu.org/https://bellard.org/textsynth/api/v1/engines/gptj_6B/completions", {
+	let res = await fetch("https://cors.smartfridge.space/bellard.org/textsynth/api/v1/engines/gptj_6B/completions", {
 	  "headers": {
 		"accept": "*/*",
 		"accept-language": "en-US,en;q=0.9",
@@ -29,10 +29,11 @@ let generate = async prompt1 => {
 	  //"body": "{\"prompt\":\"Hello, world!\",\"temperature\":1,\"top_k\":40,\"top_p\":0.9,\"seed\":0,\"stream\":true}",
 	  "body": JSON.stringify(info),
 	  "method": "POST",
-	  "mode": "cors"
+	  "type": "no-cors"
 	});
 	let i = "[Copilot] Message to make this unminify.";
 	console.log(i) //the bundler breaks shit if this isn't here
+	console.log(res)
 	return await res.JSON()
 }
 
