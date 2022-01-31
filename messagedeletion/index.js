@@ -1,9 +1,9 @@
 import {React} from '@cumcord/modules/common';
+import Patcher from 'simian'
 const getElementFromMessageId =
     cumcord.modules.webpackModules.findByProps('getElementFromMessageId')
         .getElementFromMessageId;
-const origDispatch = Object.getPrototypeOf(
-    cumcord.modules.webpackModules.findByProps('dispatch'));
+const origDispatch = cumcord.modules.webpack.find(e => e.dispatch && !e.getCurrentUser)
 const getChannelInfo =
     Object
         .getPrototypeOf(
@@ -16,6 +16,8 @@ const getGuildInfo =
 const SettingsView =
     cumcord.modules.webpackModules.findByDisplayName('SettingsView');
 import Settings from './components/Settings.jsx';
+
+let patcher = new Patcher()
 
 let deletedMessages = [];
 let unpatch;
@@ -53,14 +55,14 @@ export default {
     // (assuming i ever figure out how to change text colour)
 
     untimeout = setInterval(styleMessages, 300);
-    unpatch = cumcord.patcher.instead(
+    unpatch = patcher.instead(
         'dispatch', origDispatch,
         (args, orig) => {  //"prototype bullshit", thanks creatable
           if (args[0]['type'] === 'MESSAGE_DELETE') {
-            console.log(args);
-            try {
+            console.log(args) 
+			try {
               var deletedMessageInfo = {
-                'deletedHtmlElement': getElementFromMessageId(args[0]['id'])
+                'deletedHtmlElement': getElementFromMessageId(document, args[0]['id'])
               };
               deletedMessageInfo['deletedText'] =
                   deletedMessageInfo['deletedHtmlElement'].innerText.split(
@@ -90,16 +92,6 @@ export default {
             }
           }
           return orig(...args);
-        });
-    unsettings = cumcord.patcher.after(
-        'getPredicateSections', SettingsView.prototype, (args, items) => {
-          const settings = [
-            {section: 'DIVIDER'},
-            {section: 'HEADER', label: 'BetterMessageDeletion'},
-            {section: 'BMD', label: 'Settings', element: Settings}
-          ]
-          items.push(...settings);
-          return items;
         });
   },
   onUnload() {

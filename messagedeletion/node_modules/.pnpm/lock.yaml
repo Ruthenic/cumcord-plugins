@@ -1,0 +1,13 @@
+lockfileVersion: 5.3
+
+specifiers:
+  simian: ^1.4.3
+
+devDependencies:
+  simian: 1.4.3
+
+packages:
+
+  /simian/1.4.3:
+    resolution: {integrity: sha512-oETEd8qhSqrHyUPmTfjVIpxydAcXALA6rccrNdx/3chULLiG6TH18HYiUjlqGPB5AvnjbQfRViMIGgwNjh7uXA==}
+    dev: true

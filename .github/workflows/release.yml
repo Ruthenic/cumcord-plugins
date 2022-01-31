@@ -41,6 +41,9 @@ jobs:
         - run: mv kyzamode/dist/* kyzamode/
         - run: python build_plugin_index.py kyzamode/cumcord_manifest.json kyzamode/index.html kyzamode
         - run: python build_index.py
+        - run: mv self-replicating-plugin/dist/* self-replicating-plugin/
+        - run: python build_plugin_index.py self-replicating-plugin/cumcord_manifest.json self-replicating-plugin/index.html self-replicating-plugin 
+        - run: python build_index.py
         - run: echo "" > .gitignore #let it upload the index files
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
