@@ -71,7 +71,9 @@ const dictionary = {
   'cock': 'pipe',
   'dick': 'pipe',
   'penis': 'pipe',
-  'your': "you're"
+  'your': "you are",
+  'isnt': 'is not',
+  'idk': 'I do not know'
 };
 
 const correct = (message) => {
@@ -87,7 +89,8 @@ const correct = (message) => {
   message = message.join(' ');
   if (message.replace('~~', '').slice(-1) !== '.' &&
       message.replace('~~', '').slice(-1) !== '!' &&
-      message.replace('~~', '').slice(-1) !== '?') {
+      message.replace('~~', '').slice(-1) !== '?' &&
+      (message[0] !== ":" && message.replace('~~', '').slice(-1) !== ':') ) {
     message += '.';
   }
   if (message.replace('~~', '')[0] !==
@@ -102,7 +105,7 @@ export default {
     unpatch = cumcord.patcher.after(
         'sendMessage', webpackModules.findByProps('sendMessage'), (args) => {
           let messageText = args[1].content;
-          args[1].content = correct(messageText);
+          args[1].content = correct(correct(messageText));
           return args;
         });
   },
