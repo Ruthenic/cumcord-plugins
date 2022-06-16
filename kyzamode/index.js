@@ -1,4 +1,4 @@
-import {webpackModules} from '@cumcord/modules';
+import { findByProps } from '@cumcord/modules/webpack';
 
 let unpatch;
 
@@ -103,7 +103,7 @@ const correct = (message) => {
 export default {
   onLoad() {
     unpatch = cumcord.patcher.after(
-        'sendMessage', webpackModules.findByProps('sendMessage'), (args) => {
+        'sendMessage', findByProps('sendMessage'), (args) => {
           let messageText = args[1].content;
           args[1].content = correct(correct(messageText));
           return args;
